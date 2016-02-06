@@ -6,7 +6,7 @@
 /*   By: ngrasset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 16:15:57 by ngrasset          #+#    #+#             */
-/*   Updated: 2016/02/06 17:20:08 by ngrasset         ###   ########.fr       */
+/*   Updated: 2016/02/06 17:30:48 by ngrasset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				ftrl_init_history(t_rl_reader *r, char *filename)
 	if (!(r->hist->filename = ft_strdup(filename)))
 		return (-1);
 	r->hist->head = NULL;
-	fd = open(filename, O_RDONLY | O_CREAT, S_IRWXU);
+	fd = open(filename, O_RDONLY | O_CREAT, S_IRWXU); //if the hist file doesnt exists it will be created
 	if (fd == -1)
 		return (-1);
 	while (get_next_line(fd, &str) == 1)
