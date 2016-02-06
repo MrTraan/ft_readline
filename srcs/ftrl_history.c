@@ -6,13 +6,16 @@
 /*   By: ngrasset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 16:15:57 by ngrasset          #+#    #+#             */
-/*   Updated: 2016/01/25 16:30:47 by ngrasset         ###   ########.fr       */
+/*   Updated: 2016/02/06 17:20:08 by ngrasset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_readline.h>
 #include <debug.h>
-
+/*
+ * create history structure
+ * fill it with the content of the history file
+ */
 int				ftrl_init_history(t_rl_reader *r, char *filename)
 {
 	int			fd;
@@ -30,7 +33,7 @@ int				ftrl_init_history(t_rl_reader *r, char *filename)
 	{
 		if (!str)
 			return (-1);
-		if (!*str)
+		if (!*str)  //ignore empty lines
 		{
 			free(str);
 			continue ;
@@ -43,6 +46,9 @@ int				ftrl_init_history(t_rl_reader *r, char *filename)
 	return (0);
 }
 
+/*
+ * write history to history file
+ */
 int				ftrl_save_history(t_rl_reader *r)
 {
 	int			fd;

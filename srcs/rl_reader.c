@@ -6,12 +6,15 @@
 /*   By: ngrasset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 15:15:02 by ngrasset          #+#    #+#             */
-/*   Updated: 2016/01/24 15:37:50 by ngrasset         ###   ########.fr       */
+/*   Updated: 2016/02/06 17:11:17 by ngrasset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_readline.h>
 
+/*
+ * write a string in reader, according to cursor position
+ */
 int		reader_write(t_rl_reader *r, char *str)
 {
 	if (!str)
@@ -31,6 +34,9 @@ int		reader_write(t_rl_reader *r, char *str)
 	return (ft_strlen(str));
 }
 
+/*
+ * write a char in reader, according to cursor position
+ */
 int		reader_write_char(t_rl_reader *r, char c)
 {
 	if (r->end + 1 >= r->size)
@@ -47,7 +53,9 @@ int		reader_write_char(t_rl_reader *r, char c)
 	r->end++;
 	return (0);
 }
-
+/*
+ * free reader line and create a fresh new one
+ */
 int		reader_clear(t_rl_reader *r)
 {
 	if (r->line)

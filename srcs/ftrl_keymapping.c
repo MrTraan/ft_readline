@@ -6,24 +6,31 @@
 /*   By: ngrasset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 16:14:55 by ngrasset          #+#    #+#             */
-/*   Updated: 2016/02/04 04:16:16 by ngrasset         ###   ########.fr       */
+/*   Updated: 2016/02/06 17:18:57 by ngrasset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_readline.h>
 #include <debug.h>
 
+/* 
+ * this tab maps a key to a function
+ */
 t_rl_keybind	g_rl_key_map[] = {
-	{127, &rl_backdel},
-	{0x445b1b, &rl_backward_char},
-	{0x435b1b, &rl_forward_char},
-	{0x44323b315b1b, &rl_backward_word},
-	{0x43323b315b1b, &rl_forward_word},
-	{0x415b1b, &rl_hist_get_previous},
-	{0x425b1b, &rl_hist_get_next},
-	{-1, NULL}
+	{127, &rl_backdel},						//backdel
+	{0x445b1b, &rl_backward_char},			//left arrow
+	{0x435b1b, &rl_forward_char},			//right arrow
+	{0x44323b315b1b, &rl_backward_word},	//shift + left arrow
+	{0x43323b315b1b, &rl_forward_word},		//shift + right arrow
+	{0x415b1b, &rl_hist_get_previous},		//up arrow
+	{0x425b1b, &rl_hist_get_next},			//down arrow
+	{-1, NULL}								//used to signal the end of the tab
 };
 
+/*
+ * loop throw the mapping tab to find if a function exist for a key
+ * returns the function or NULL if none exist
+ */
 t_rl_key_fn	rl_sp_key(long key)
 {
 	int		i;
