@@ -6,7 +6,7 @@
 /*   By: ngrasset <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 16:14:55 by ngrasset          #+#    #+#             */
-/*   Updated: 2016/02/06 17:18:57 by ngrasset         ###   ########.fr       */
+/*   Updated: 2016/02/06 17:29:34 by ngrasset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_rl_keybind	g_rl_key_map[] = {
 };
 
 /*
- * loop throw the mapping tab to find if a function exist for a key
+ * loop through the mapping tab to find if a function exist for a key
  * returns the function or NULL if none exist
  */
 t_rl_key_fn	rl_sp_key(long key)
