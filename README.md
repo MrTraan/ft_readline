@@ -3,7 +3,7 @@ How to use it:
 ```
 int   main(void)
 {
-    ft_rl_reader    *r;
+    t_rl_reader    *r;
     char            *line;
     
     r = ftrl_init();
